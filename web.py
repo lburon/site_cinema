@@ -45,7 +45,7 @@ def index():
                 data = response.json()
                 print("Réponse OMDb:", data)  # debug
                 if data.get('Response') == 'True':
-                    search_results = data.get('Search', [])[:5]
+                    search_results = data.get('Search', [])[:4]
                 else:
                     search_results = []
 
