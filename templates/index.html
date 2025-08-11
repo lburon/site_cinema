@@ -114,30 +114,42 @@
         {% endif %}
 
         <div style="
-            border: 3px solid #1f2733; /* bordure plus foncée */
+            border: 3px solid #1f2733;
             padding: 20px;
             background-color: #1f2733;
             color: #ecf0f1;
             max-width: 350px;
             font-size: 1.1rem;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-            
-            /* coins biseautés */
             clip-path: polygon(
-            10px 0%, calc(100% - 10px) 0%, 100% 10px, 
-            100% calc(100% - 10px), calc(100% - 10px) 100%, 
-            10px 100%, 0% calc(100% - 10px), 0% 10px
+                10px 0%, calc(100% - 10px) 0%, 100% 10px,
+                100% calc(100% - 10px), calc(100% - 10px) 100%,
+                10px 100%, 0% calc(100% - 10px), 0% 10px
             );
 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         ">
-        <p><strong>Year:</strong> {{ details.get('year', 'N/A') }}</p>
-        <p><strong>Director:</strong> {{ details.get('director', 'N/A') }}</p>
-        <p><strong>Cast:</strong> {{ details.get('actors', 'N/A') }}</p>
+            <!-- Groupe serré -->
+            <p style="margin: 0 0 20px 0;"><strong>Year:</strong> {{ details.get('year', 'N/A') }}</p>
+            <p style="margin: 0 0 4px 0;"><strong>Director:</strong> {{ details.get('director', 'N/A') }}</p>
+            <p style="margin: 0 0 30px 0;"><strong>Writer:</strong> {{ details.get('writer', 'N/A') }}</p>
+            <p style="margin: 0 0 30px 0;"><strong>Cast:</strong> {{ details.get('actors', 'N/A') }}</p>
+
+            <!-- Espace avant Plot -->
+            <p style="font-size: 0.9rem; color: #cccccc; margin: 0 0 40px 0; font-style: italic;">
+                <strong>Plot:</strong> {{ details.get('plot', 'N/A') }}
+            </p>
+
+            <!-- Runtime simple espacement -->
+            <p>
+                <strong>Runtime:</strong> {{ details.get('runtime', 'N/A') }}
+            </p>
         </div>
     </div>
+
+
   {% endif %}
 
   
@@ -162,9 +174,9 @@
     </ul>
   {% endif %}
   {% if average %}
-  <p style="margin-top: 0px;margin-bottom: 100px; font-size: 1.3rem; font-weight: bold; text-align: center;">
+  <p style="margin-top: -20px;margin-bottom: 100px; font-size: 1.3rem; font-weight: bold; text-align: center;">
     Average rating: {{ average }}/10
   </p>
-{% endif %}
+  {% endif %}
 </body>
 </html>

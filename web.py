@@ -61,6 +61,9 @@ def index():
                         'year': data.get('Year'),
                         'director': data.get('Director'),
                         'actors': data.get('Actors'),
+                        'runtime': data.get('Runtime'),
+                        'writer': data.get('Writer'),
+                        'plot': data.get('Plot'),
                     }
                     ratings = {r['Source']: r['Value'] for r in data.get('Ratings', [])}
 
