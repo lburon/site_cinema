@@ -18,7 +18,7 @@ def slugify_letterboxd(title):
 
 def get_letterboxd_rating(imdb_id):
     movie_url = f'https://letterboxd.com/imdb/{imdb_id}/'
-    headers = {"User-Agent": "Mozilla/5.0"}
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36"}
 
     try:
         response = requests.get(movie_url, headers=headers)

@@ -95,7 +95,7 @@
 
     {% if search_results %}
     <select name="imdb_id" onchange="this.form.submit()">
-        <option value="">-- Choisis un film --</option>
+        <option value="">-- Choose a movie --</option>
         {% for movie in search_results %}
         <option value="{{ movie.imdbID }}">{{ movie.Title }} ({{ movie.Year }})</option>
         {% endfor %}
