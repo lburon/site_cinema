@@ -16,9 +16,8 @@ def slugify_letterboxd(title):
     return title
 
 
-def get_letterboxd_rating(movie_name):
-    query = slugify_letterboxd(movie_name)
-    movie_url = f'https://letterboxd.com/film/{query}/'
+def get_letterboxd_rating(imdb_id):
+    movie_url = f'https://letterboxd.com/imdb/{imdb_id}/'
     headers = {"User-Agent": "Mozilla/5.0"}
 
     try:
@@ -69,5 +68,3 @@ if __name__ == "__main__":
         print(f"Note Letterboxd : {rating}")
     else:
         print("Film non trouvé sur Letterboxd.")
-
-#sachant qu'il y a une ligne  <a href="/film/inception/ratings/" class="tooltip display-rating -highlight" data-original-title="Weighted average of 4.22 based on 3,136,028&nbsp;ratings">4.2</a>  dans span class="average-rating"

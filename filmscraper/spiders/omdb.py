@@ -14,7 +14,7 @@ def get_all_ratings(movie_name, api_key):
         data = response.json()
     except Exception as e:
         print(f"Erreur API OMDb: {e}")
-        return None, None  # modifié pour renvoyer 2 valeurs
+        return None, None, None  # modifié pour renvoyer 3 valeurs
 
     ratings = {}
     if "Ratings" in data:
@@ -23,8 +23,15 @@ def get_all_ratings(movie_name, api_key):
             value = rating["Value"]
             ratings[source] = value
 
-    poster_url = data.get("Poster")  # récupère le poster
-    return ratings, poster_url
+    poster_url = data.get("Poster")
+
+    details = {
+        "year": data.get("Year", "N/A"),
+        "director": data.get("Director", "N/A"),
+        "actors": data.get("Actors", "N/A")
+    }
+
+    return ratings, poster_url, details
 
 
 if __name__ == "__main__":
